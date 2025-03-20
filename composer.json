@@ -7,16 +7,19 @@
         "ext-mysqli": "*",
         "ext-pdo": "*"
     },
-    "autoload":{
-        "psr-0":{
-            "controller":"",
-            "model":"",
-            "db":""
+    "autoload": {
+        "psr-4": {
+            "Database\\": "src/Database/",
+            "Controller\\": "src/Controller/",
+            "Model\\": "src/Model/"
         }
     },
     "config": {
         "allow-plugins": {
             "kylekatarnls/update-helper": true
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
     }
 }

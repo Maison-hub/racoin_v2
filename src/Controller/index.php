@@ -1,10 +1,10 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use model\Annonce;
-use model\Photo;
-use model\Annonceur;
+use Model\Annonce;
+use Model\Annonceur;
+use Model\Photo;
 
 class index
 {

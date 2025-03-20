@@ -6,10 +6,10 @@
  * Time: 00:25
  */
 
-namespace controller;
-use model\Annonce;
-use model\Annonceur;
-use model\Photo;
+namespace Controller;
+use Model\Annonce;
+use Model\Annonceur;
+use Model\Photo;
 
 class viewAnnonceur {
     public function __construct(){

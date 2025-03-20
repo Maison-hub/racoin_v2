@@ -1,8 +1,8 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use model\Departement;
+use Model\Departement;
 
 class getDepartment {
 
