@@ -22,3 +22,12 @@ Ajouter des logs pour chaque requête HTTP.
 ## 7 - Ajouter une documentation
 Utiliser un systeme de génération de documentation Open API
 Si tu vois d'autre point à ajouter
+
+
+Ce qui as été fait:
+- Mise en place de test
+- Architecture ajout du dossier src
+- Migration vers slim 4
+- Ajout de phpcs 
+- Ajout de la documentation Open API
+- Ajout de log pour chaque requête HTTP via un middleware

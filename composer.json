@@ -6,7 +6,9 @@
         "php-di/php-di": "^6.0",        "twig/twig": "3.*",
         "illuminate/database": "11.*",
         "ext-mysqli": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "zircote/swagger-php": "^5.0",
+        "monolog/monolog": "^3.8"
     },
     "autoload": {
         "psr-4": {
