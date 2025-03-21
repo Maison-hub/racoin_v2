@@ -4,8 +4,8 @@ namespace Controller;
 
 use Model\Departement;
 
-class getDepartment {
-
+class getDepartment
+{
     protected $departments = array();
 
     public function getAllDepartments(): array

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: ponicorn
@@ -7,31 +8,34 @@
  */
 
 namespace Controller;
+
 use Model\Annonce;
 use Model\Annonceur;
 use Model\Photo;
 
-class viewAnnonceur {
-    public function __construct(){
+class viewAnnonceur
+{
+    public function __construct()
+    {
     }
     function afficherAnnonceur($twig, $menu, $chemin, $n, $cat): void
     {
         $this->annonceur = annonceur::find($n);
-        if(!isset($this->annonceur)){
+        if (!isset($this->annonceur)) {
             echo "404";
             return;
         }
-        $tmp = annonce::where('id_annonceur','=',$n)->get();
+        $tmp = annonce::where('id_annonceur', '=', $n)->get();
 
         $annonces = [];
         foreach ($tmp as $a) {
             $a->nb_photo = Photo::where('id_annonce', '=', $a->id_annonce)->count();
-            if($a->nb_photo>0){
+            if ($a->nb_photo > 0) {
                 $a->url_photo = Photo::select('url_photo')
                     ->where('id_annonce', '=', $a->id_annonce)
                     ->first()->url_photo;
-            }else{
-                $a->url_photo = $chemin.'/img/noimg.png';
+            } else {
+                $a->url_photo = $chemin . '/img/noimg.png';
             }
 
             $annonces[] = $a;

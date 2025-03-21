@@ -2,7 +2,8 @@
 
 namespace Model;
 
-class Annonce extends \Illuminate\Database\Eloquent\Model {
+class Annonce extends \Illuminate\Database\Eloquent\Model
+{
     protected $table = 'annonce';
     protected $primaryKey = 'id_annonce';
     public $timestamps = false;
@@ -18,6 +19,4 @@ class Annonce extends \Illuminate\Database\Eloquent\Model {
     {
         return $this->hasMany('Model\Photo', 'id_photo');
     }
-
 }
-?>

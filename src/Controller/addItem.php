@@ -7,7 +7,6 @@ use Model\Annonceur;
 
 class addItem
 {
-
     function addItemView($twig, $menu, $chemin, $cat, $dpt): void
     {
         $template = $twig->load("add.html.twig");
@@ -16,9 +15,7 @@ class addItem
                 "chemin"       => $chemin,
                 "categories"   => $cat,
                 "departements" => $dpt
-            )
-        );
-
+            ));
     }
 
     private function isEmail($email): bool
@@ -97,14 +94,12 @@ class addItem
 
         // S'il y a des erreurs on redirige vers la page d'erreur
         if (!empty($errors)) {
-
             $template = $twig->load("add-error.html.twig");
             echo $template->render(array(
                     "breadcrumb" => $menu,
                     "chemin"     => $chemin,
                     "errors"     => $errors
-                )
-            );
+                ));
         } // sinon on ajoute à la base et on redirige vers une page de succès
         else {
             $annonce   = new Annonce();
