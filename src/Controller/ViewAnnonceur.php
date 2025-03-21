@@ -13,12 +13,12 @@ use Model\Annonce;
 use Model\Annonceur;
 use Model\Photo;
 
-class viewAnnonceur
+class ViewAnnonceur
 {
     public function __construct()
     {
     }
-    function afficherAnnonceur($twig, $menu, $chemin, $n, $cat): void
+    public function afficherAnnonceur($twig, $menu, $chemin, $n, $cat): void
     {
         $this->annonceur = annonceur::find($n);
         if (!isset($this->annonceur)) {

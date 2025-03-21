@@ -9,12 +9,12 @@ use Model\Categorie;
 use Model\Departement;
 use Model\Photo;
 
-#[AllowDynamicProperties] class item
+#[AllowDynamicProperties] class Item
 {
     public function __construct()
     {
     }
-    function afficherItem($twig, $menu, $chemin, $n, $cat): void
+    public function afficherItem($twig, $menu, $chemin, $n, $cat): void
     {
 
         $this->annonce = Annonce::find($n);
@@ -45,7 +45,7 @@ use Model\Photo;
             "categories" => $cat));
     }
 
-    function supprimerItemGet($twig, $menu, $chemin, $n): void
+    public function supprimerItemGet($twig, $menu, $chemin, $n): void
     {
         $this->annonce = Annonce::find($n);
         if (!isset($this->annonce)) {
@@ -59,7 +59,7 @@ use Model\Photo;
     }
 
 
-    function supprimerItemPost($twig, $menu, $chemin, $n, $cat): void
+    public function supprimerItemPost($twig, $menu, $chemin, $n, $cat): void
     {
         $this->annonce = Annonce::find($n);
         $reponse = false;
@@ -77,7 +77,7 @@ use Model\Photo;
             "categories" => $cat));
     }
 
-    function modifyGet($twig, $menu, $chemin, $id): void
+    public function modifyGet($twig, $menu, $chemin, $id): void
     {
         $this->annonce = Annonce::find($id);
         if (!isset($this->annonce)) {
@@ -90,7 +90,7 @@ use Model\Photo;
             "annonce" => $this->annonce));
     }
 
-    function modifyPost($twig, $menu, $chemin, $n, $cat, $dpt): void
+    public function modifyPost($twig, $menu, $chemin, $n, $cat, $dpt): void
     {
         $this->annonce = Annonce::find($n);
         $this->annonceur = Annonceur::find($this->annonce->id_annonceur);
@@ -114,7 +114,7 @@ use Model\Photo;
             "categItem" => $this->categItem));
     }
 
-    function edit($twig, $menu, $chemin, $allPostVars, $id): void
+    public function edit($twig, $menu, $chemin, $allPostVars, $id): void
     {
 
         date_default_timezone_set('Europe/Paris');
@@ -191,9 +191,8 @@ use Model\Photo;
                     "breadcrumb" => $menu,
                     "chemin" => $chemin,
                     "errors" => $errors));
-        }
+        } else {
         // sinon on ajoute à la base et on redirige vers une page de succès
-        else {
             $this->annonce = Annonce::find($id);
             $idannonceur = $this->annonce->id_annonceur;
             $this->annonceur = Annonceur::find($idannonceur);

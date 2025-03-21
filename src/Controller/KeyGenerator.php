@@ -6,7 +6,7 @@ use Model\ApiKey;
 
 class KeyGenerator
 {
-    function show($twig, $menu, $chemin, $cat): void
+    public function show($twig, $menu, $chemin, $cat): void
     {
         $template = $twig->load("key-generator.html.twig");
         $menu = array(
@@ -18,7 +18,7 @@ class KeyGenerator
         echo $template->render(array("breadcrumb" => $menu, "chemin" => $chemin, "categories" => $cat));
     }
 
-    function generateKey($twig, $menu, $chemin, $cat, $nom): void
+    public function generateKey($twig, $menu, $chemin, $cat, $nom): void
     {
         $nospace_nom = str_replace(' ', '', $nom);
 
