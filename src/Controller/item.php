@@ -42,7 +42,8 @@ use Model\Photo;
             "categories" => $cat));
     }
 
-    function supprimerItemGet($twig, $menu, $chemin,$n){
+    function supprimerItemGet($twig, $menu, $chemin,$n): void
+    {
         $this->annonce = Annonce::find($n);
         if(!isset($this->annonce)){
             echo "404";
@@ -55,7 +56,8 @@ use Model\Photo;
     }
 
 
-    function supprimerItemPost($twig, $menu, $chemin, $n, $cat){
+    function supprimerItemPost($twig, $menu, $chemin, $n, $cat): void
+    {
         $this->annonce = Annonce::find($n);
         $reponse = false;
         if(password_verify($_POST["pass"],$this->annonce->mdp)){
@@ -73,7 +75,8 @@ use Model\Photo;
             "categories" => $cat));
     }
 
-    function modifyGet($twig, $menu, $chemin, $id){
+    function modifyGet($twig, $menu, $chemin, $id): void
+    {
         $this->annonce = Annonce::find($id);
         if(!isset($this->annonce)){
             echo "404";
@@ -85,7 +88,8 @@ use Model\Photo;
             "annonce" => $this->annonce));
     }
 
-    function modifyPost($twig, $menu, $chemin, $n, $cat, $dpt){
+    function modifyPost($twig, $menu, $chemin, $n, $cat, $dpt): void
+    {
         $this->annonce = Annonce::find($n);
         $this->annonceur = Annonceur::find($this->annonce->id_annonceur);
         $this->categItem = Categorie::find($this->annonce->id_categorie)->nom_categorie;
@@ -109,7 +113,8 @@ use Model\Photo;
             "categItem" => $this->categItem));
     }
 
-    function edit($twig, $menu, $chemin, $allPostVars, $id){
+    function edit($twig, $menu, $chemin, $allPostVars, $id): void
+    {
 
         date_default_timezone_set('Europe/Paris');
 

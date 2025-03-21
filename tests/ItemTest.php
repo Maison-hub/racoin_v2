@@ -37,7 +37,6 @@ class ItemTest extends TestCase
 
         // Create an instance of the controller
         $controller = new \src\controller\addItem();
-
         // Call the addNewItem method
         $controller->addNewItem($twig, $menu, $chemin, $allPostVars);
 

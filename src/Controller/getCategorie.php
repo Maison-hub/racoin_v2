@@ -11,11 +11,13 @@ class getCategorie {
 
     protected $categories = array();
 
-    public function getCategories() {
+    public function getCategories(): array
+    {
         return Categorie::orderBy('nom_categorie')->get()->toArray();
     }
 
-    public function getCategorieContent($chemin, $n) {
+    public function getCategorieContent($chemin, $n): void
+    {
         $tmp = Annonce::with("Annonceur")->orderBy('id_annonce','desc')->where('id_categorie', "=", $n)->get();
         $annonce = [];
         foreach($tmp as $t) {
@@ -35,7 +37,8 @@ class getCategorie {
         $this->annonce = $annonce;
     }
 
-    public function displayCategorie($twig, $menu, $chemin, $cat, $n) {
+    public function displayCategorie($twig, $menu, $chemin, $cat, $n): void
+    {
         $template = $twig->load("index.html.twig");
         $menu = array(
             array('href' => $chemin,
